@@ -16,14 +16,13 @@ namespace TextRPG__ver._2025_
             Value = atk;
             Price = gold;
         }
-
-        public Weapon(string name, int atk, string desc, int gold, bool IsEq)
+        public Weapon(string name, int atk, string desc, int gold, bool isEq)
         {
             Name = name;
             Description = desc;
             Value = atk;
             Price = gold;
-            IsEquipped = IsEq;
+            IsEquipped = isEq; // 장착 여부 설정
         }
     }
 }

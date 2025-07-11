@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,14 +27,11 @@ namespace TextRPG__ver._2025_
         }
         public override void GiveStarterItems()
         {
-            var ironArmor = new Armor("무쇠갑옷", 1, "전사의 기본적인 장비.", 10);
-            var ironSword = new Weapon("쇠검", 6, "전사의 기본적인 무기", 10);
-
             // 아이템을 데이터 매니저의 인벤토리에 추가
             DataManager.Inventory.AddRange(new Item[]
             {
-               ironArmor,
-               ironSword,
+               new Armor("무쇠갑옷", 1, "전사의 기본적인 장비.", 10, true),
+               new Weapon("쇠검", 6, "전사의 기본적인 무기", 10, true),
             });
         }
     }

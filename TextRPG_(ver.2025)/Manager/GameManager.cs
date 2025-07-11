@@ -51,7 +51,7 @@ namespace TextRPG__ver._2025_
         private void Init()
         {
             Console.CursorVisible = false;
-
+            DataManager.Init();
             // Scene 등록
             scenes[SceneID.MainMenu] = new MainMenuScene(this);
             scenes[SceneID.Village] = new VillageScene(this);
@@ -96,6 +96,9 @@ namespace TextRPG__ver._2025_
                 return;
             }
             currentClassID = playerClass[id];
+            DataManager.Inventory.Clear();
+            currentClassID.GiveStarterItems();
+            GiveTestItems();
 
             Console.WriteLine($"\ninfo : {id} 클래스을 선택했습니다.\n");
             Console.WriteLine("마을로 입장합니다.");
@@ -105,14 +108,11 @@ namespace TextRPG__ver._2025_
         // 장착확인 테스트 아이템 생성 메서드
         public void GiveTestItems()
         {
-            var rtan = new Weapon("르탄피규어", 999, "스파르탄SD 피규어... \"이게왜... 여기있지?\"", 999);
-            var rtanPants = new Armor("르탄빤쓰", 999, "르탄 빤쓰다! \"뭐야이거?!\"", 999);
-
             // 아이템을 데이터 매니저의 인벤토리에 추가
             DataManager.Inventory.AddRange(new Item[]
             {
-               rtan,
-               rtanPants,
+               new Weapon("르탄피규어", 999, "스파르탄SD 피규어... \"이게왜... 여기있지?\"", 999),
+               new Armor("르탄빤쓰", 999, "르탄 빤쓰다! \"뭐야이거?!\"", 999),
             });
         }
 
