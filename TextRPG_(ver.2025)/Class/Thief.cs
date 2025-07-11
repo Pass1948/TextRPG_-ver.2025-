@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TextRPG__ver._2025_
 {
-    public abstract class Class
+    public class Thief : Class
     {
     }
 }
