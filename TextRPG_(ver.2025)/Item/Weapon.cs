@@ -8,12 +8,22 @@ namespace TextRPG__ver._2025_
 {
     public class Weapon : Item
     {
+        // 초기 장착 장비때문에 오버로딩
         public Weapon(string name, int atk, string desc, int gold)
         {
             Name = name;
             Description = desc;
             Value = atk;
             Price = gold;
+        }
+
+        public Weapon(string name, int atk, string desc, int gold, bool IsEq)
+        {
+            Name = name;
+            Description = desc;
+            Value = atk;
+            Price = gold;
+            IsEquipped = IsEq;
         }
     }
 }

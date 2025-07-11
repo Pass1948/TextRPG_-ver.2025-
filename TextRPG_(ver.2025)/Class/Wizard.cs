@@ -24,5 +24,18 @@ namespace TextRPG__ver._2025_
             CurDP = MaxDP;
             CurGold = Gold;
         }
+
+        public override void GiveStarterItems()
+        {
+            var robe = new Armor("마법사의 로브", 1, "마법사의 기본적인 장비", 10);
+            var staff = new Weapon("오래된 지팡이", 6, "마법사의 기본적인 무기", 10);
+
+            // 아이템을 데이터 매니저의 인벤토리에 추가
+            DataManager.Inventory.AddRange(new Item[]
+            {
+               robe,
+               staff,
+            });
+        }
     }
 }

@@ -24,5 +24,17 @@ namespace TextRPG__ver._2025_
             CurDP = MaxDP;
             CurGold = Gold;
         }
+        public override void GiveStarterItems()
+        {
+            var leatherArmor = new Armor("가죽 갑옷", 2, "도적의 기본적인 장비", 10, true);
+            var dagger = new Weapon("단검", 2, "도적의 기본적인 무기", 10, true);
+
+            // 아이템을 데이터 매니저의 인벤토리에 추가
+            DataManager.Inventory.AddRange(new Item[]
+            {
+               leatherArmor,
+               dagger,
+            });
+        }
     }
 }

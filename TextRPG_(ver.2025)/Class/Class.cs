@@ -36,5 +36,8 @@ namespace TextRPG__ver._2025_
         // 골드
         public int Gold;
         public int CurGold;
+
+        // 초기 장비세팅
+        public abstract void GiveStarterItems();
     }
 }
