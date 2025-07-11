@@ -65,12 +65,17 @@ namespace TextRPG__ver._2025_
             int idx = input - 1;
             var Invenit = DataManager.Inventory[idx];
 
-           
+            if (Invenit.IsEquipped)
+            {
+                Info("Info : 장착되어 장비는 해제 후 판매가능합니다.");
+                Thread.Sleep(1000);
+                return;
+            }
 
            Invenit.IsSold = false;
            DataManager.StoreItems.Add(Invenit); // 판매한 아이템을 상점에 추가
            DataManager.Inventory.RemoveAt(idx); // 인벤토리에서 아이템 제거
-            Console.WriteLine($"\ninfo : [{Invenit.Name}] 아이템을 판매했습니다.");
+           Console.WriteLine($"\ninfo : [{Invenit.Name}] 아이템을 판매했습니다.");
            pc.CurGold += Invenit.Price * 85 / 100;
            Thread.Sleep(1000);
         }
