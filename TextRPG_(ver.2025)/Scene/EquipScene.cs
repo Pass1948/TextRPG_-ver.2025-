@@ -33,18 +33,23 @@ namespace TextRPG__ver._2025_
             if (!int.TryParse(Console.ReadLine(), out input))
             {
                 Console.WriteLine("\n잘못 입력 하셨습니다.");
-                Thread.Sleep(1000); // 1초 대기
+                Thread.Sleep(1000);
                 return;
             }
-            if (input == 0)                 // 뒤로가기
+
+            // 뒤로가기
+            if (input == 0)
             {
                 Console.WriteLine("\ninfo : 인벤토리로 돌아갑니다");
                 gameManager.SwitchScene(SceneID.Inventory);
                 Thread.Sleep(1000);
                 return;
             }
+            
             int idx = input - 1;
             Item selected = DataManager.Inventory[idx];
+
+            // 아이템 목록 이외 번호 입력 예외처리
             if (input < 0 || input > DataManager.Inventory.Count)
             {
                 Console.WriteLine("\ninfo : 해당 번호의 아이템이 없습니다.");
