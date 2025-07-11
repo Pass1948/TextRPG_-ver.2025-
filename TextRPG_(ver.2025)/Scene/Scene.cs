@@ -76,5 +76,12 @@ namespace TextRPG__ver._2025_
             Console.WriteLine(text);
             Console.ResetColor();// 기본 색 복원 
         }
+
+        // 화면내 행동 정보 출력
+        public void Info(string msg)
+        {
+            Console.WriteLine($"\n{msg}");
+            Thread.Sleep(800);
+        }
     }
 }
