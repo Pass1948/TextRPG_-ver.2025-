@@ -14,5 +14,7 @@ namespace TextRPG__ver._2025_
         public bool IsEquipped { get; set; } = false; // 장착 여부
         public int Price { get; protected set; }
         public bool IsSold { get; set; }  // 상점에서 구매 완료했는지 표시
+
+        public int Type { get; protected set; } // 장비 타입 (1: 무기, 2: 방어구 등)
     }
 }

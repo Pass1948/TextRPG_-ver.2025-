@@ -47,20 +47,39 @@ namespace TextRPG__ver._2025_
             }
             
             int idx = input - 1;
-            Item selected = DataManager.Inventory[idx];
-
-            // 아이템 목록 이외 번호 입력 예외처리
+             // 아이템 목록 이외 번호 입력 예외처리
             if (input < 0 || input > DataManager.Inventory.Count)
             {
                 Console.WriteLine("\ninfo : 해당 번호의 아이템이 없습니다.");
                 Thread.Sleep(1000);
                 return;
             }
+            Item selected = DataManager.Inventory[idx];
 
             // 선택 아이템 장착 및 해제
-            // 아이템 중복 장착 허용, 갯수 제한이 없음
-            selected.IsEquipped = !selected.IsEquipped;
-            Info(selected.IsEquipped ? $"[{selected.Name}]을(를) 장착했습니다." : $"[{selected.Name}]을(를) 해제했습니다.");
+            if (!selected.IsEquipped)
+            {
+                // 새로 장착하려는 아이템이 Weapon 또는 Armor 라면
+                if (selected.Type == 1 || selected.Type == 2)
+                {
+                    // 같은 Type 중 이미 장착된 녀석 검색
+                    var currentlyEquipped = DataManager.Inventory.FirstOrDefault(i => i.IsEquipped && i.Type == selected.Type);
+                    if (currentlyEquipped != null)
+                    {
+                        Info("Info : 이미 다른 장비가 장착되어 있습니다");
+                        return;
+                    }
+                }
+                //선택한 아이템 장착
+                selected.IsEquipped = true;
+                Info($"Info : [{selected.Name}]을(를) 장착했습니다.");
             }
+            else
+            {
+                // 이미 장착된 아이템 선택 시 해제만
+                selected.IsEquipped = false;
+                Info($"Info : [{selected.Name}]을(를) 해제했습니다.");
+            }
+        }
            }
 }

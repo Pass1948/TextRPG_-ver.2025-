@@ -30,8 +30,8 @@ namespace TextRPG__ver._2025_
             // 아이템을 데이터 매니저의 인벤토리에 추가
             DataManager.Inventory.AddRange(new Item[]
             {
-               new Armor("무쇠갑옷", 1, "전사의 기본적인 장비.", 10, true),
-               new Weapon("쇠검", 6, "전사의 기본적인 무기", 10, true),
+               new Armor(2, "무쇠갑옷", 1, "전사의 기본적인 장비.", 10, true),
+               new Weapon(1, "쇠검", 6, "전사의 기본적인 무기", 10, true),
             });
         }
     }

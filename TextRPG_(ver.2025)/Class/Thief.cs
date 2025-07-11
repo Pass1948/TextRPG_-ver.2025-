@@ -29,8 +29,8 @@ namespace TextRPG__ver._2025_
             // 아이템을 데이터 매니저의 인벤토리에 추가
             DataManager.Inventory.AddRange(new Item[]
             {
-               new Armor("가죽 갑옷", 2, "도적의 기본적인 장비", 10, true),
-               new Weapon("단검", 2, "도적의 기본적인 무기", 10, true),
+               new Armor(2, "가죽 갑옷", 2, "도적의 기본적인 장비", 10, true),
+               new Weapon(2, "단검", 2, "도적의 기본적인 무기", 10, true),
             });
         }
     }
