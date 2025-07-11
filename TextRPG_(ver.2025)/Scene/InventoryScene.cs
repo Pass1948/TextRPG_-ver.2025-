@@ -49,7 +49,7 @@ namespace TextRPG__ver._2025_
                     break;
                 case 0:
                     Console.WriteLine("\ninfo : 마을로 돌아갑니다");
-                    gameManager.SwitchScene(SceneID.StartingGame);
+                    gameManager.SwitchScene(SceneID.MainMenu);
                     Thread.Sleep(1000);
                     break;
                 default:

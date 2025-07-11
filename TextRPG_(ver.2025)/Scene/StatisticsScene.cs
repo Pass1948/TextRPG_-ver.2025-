@@ -17,13 +17,18 @@ namespace TextRPG__ver._2025_
             var pc = gameManager.CurrentClass;
             int bonusAP = 0;
             int bonusDP = 0;
-
+            foreach (var it in DataManager.Inventory)
+            {
+                if (!it.IsEquipped) continue;   // 해체된 건 건너뜀
+                if (it is Weapon) bonusAP += it.Value;
+                if (it is Armor) bonusDP += it.Value;
+            }
             Print("◎상태보기◎", ConsoleColor.DarkYellow);
             Print("캐릭터의 정보가 표시됩니다.\n");
             Print($"직업  : {pc.Name}");
             Print($"레벨  : {pc.Level}");
-            Print($"공격력 : {pc.CurAP + bonusAP}");
-            Print($"방어력 : {pc.CurDP + bonusDP}");
+            Print($"공격력 : {pc.CurAP + bonusAP}" + (bonusAP > 0 ? $" ( +{bonusAP} )" : ""));
+            Print($"방어력 : {pc.CurDP + bonusDP}" + (bonusDP > 0 ? $" ( +{bonusDP} )" : ""));
             Print($"체력 : {pc.CurHP}");
             Print($"Gold : {pc.Gold}\n");
             Print(0, "뒤로가기", ConsoleColor.Magenta);
