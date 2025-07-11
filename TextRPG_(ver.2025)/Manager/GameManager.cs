@@ -17,10 +17,21 @@ namespace TextRPG__ver._2025_
         Store,
         BuyItem
     }
+    public enum ClassID
+    {
+        Class,
+        Thief,
+        Warrior,
+        Wizard
+    }
+
     public class GameManager
     {
         private SceneID currentScene;
         private readonly Dictionary<SceneID, Scene> scenes = new();
+
+        private ClassID currentClass;
+        private readonly Dictionary<ClassID, Class> playerClass = new();
 
         private Class currentClassID;       //선택된 직업 인스턴스
         public Class CurrentClass => currentClassID;  //읽기용 프로퍼티
@@ -50,6 +61,11 @@ namespace TextRPG__ver._2025_
             scenes[SceneID.Store] = new StoreScene(this);
             scenes[SceneID.BuyItem] = new BuyItemScene(this);
 
+             // 플레이어 클래스 등록
+            playerClass[ClassID.Thief] = new Thief(this);
+            playerClass[ClassID.Warrior] = new Warrior(this);
+            playerClass[ClassID.Wizard] = new Wizard(this);
+
             // 초기 Scene 설정
             currentScene = SceneID.MainMenu;
         }
@@ -67,6 +83,23 @@ namespace TextRPG__ver._2025_
         }
         // ==== Scene 전환 메서드 ====
         public void SwitchScene(SceneID id) => currentScene = id;
+
+        // ==== Class 전환 메서드 ====
+        public void SwitchClass(ClassID id)
+        {
+
+            if (!playerClass.TryGetValue(id, out var pc))
+            {
+                Console.WriteLine("\n존재하지 않는 클래스입니다.");
+                Thread.Sleep(800);
+                return;
+            }
+            currentClassID = playerClass[id];
+
+            Console.WriteLine($"\ninfo : {id} 클래스을 선택했습니다.\n");
+            Console.WriteLine("마을로 입장합니다.");
+            Thread.Sleep(1000);
+        }
 
         // ==== 게임종료 문구출력 ====
         public void GameOver(string text = "")
