@@ -53,7 +53,7 @@ namespace TextRPG__ver._2025_
             if (input == 0)                 // 뒤로가기
             {
                 Console.WriteLine("\ninfo : 마을로 돌아갑니다");
-                gameManager.SwitchScene(SceneID.Inventory);
+                gameManager.SwitchScene(SceneID.Village);
                 Thread.Sleep(1000);
                 return;
             }
