@@ -18,7 +18,7 @@ namespace TextRPG__ver._2025_
 
             DisplayItems();
             Print("◎상점◎", ConsoleColor.DarkYellow);
-            Print("필요한 아이템을 얻을 수 있는 상점입니다. \n");
+            Print("필요한 아이템을 얻을 수도 팔수도 있는 상점입니다. \n");
             Print("[보유 골드]\n");
             Print(gold, "G\n", ConsoleColor.DarkMagenta);
             Print("[아이템 목록]");
@@ -29,6 +29,7 @@ namespace TextRPG__ver._2025_
             }
 
             Print(1, "아이템 구매");
+            Print(2, "아이템 판매");
             Print(0, "뒤로가기");
             Console.WriteLine("\n원하시는 행동을 입력해주세요");
             Console.Write(">>");
@@ -50,7 +51,15 @@ namespace TextRPG__ver._2025_
                 Thread.Sleep(1000);
                 return;
             }
-            if (input == 0)                 // 뒤로가기
+
+            if (input == 2)
+            {
+                Console.WriteLine("\ninfo : 아이템 판매하러 갑니다");
+                gameManager.SwitchScene(SceneID.SellItem);
+                Thread.Sleep(1000);
+                return;
+            }
+            if (input == 0)              
             {
                 Console.WriteLine("\ninfo : 마을로 돌아갑니다");
                 gameManager.SwitchScene(SceneID.Village);

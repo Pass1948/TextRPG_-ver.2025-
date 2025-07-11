@@ -15,7 +15,7 @@ namespace TextRPG__ver._2025_
         public override void Render()
         {
             Print("◎상점 - 아이템 구매◎", ConsoleColor.DarkYellow);
-            Print("필요한 아이템을 얻을 수 있는 상점입니다. \n");
+            Print("필요한 아이템을 얻을 수도 팔수도 있는 상점입니다. \n");
             Print("[보유 골드]\n");
             GoldInfo(gameManager.CurrentClass.CurGold, "G\n", ConsoleColor.DarkMagenta);
             Print("[아이템 목록]");
@@ -52,7 +52,6 @@ namespace TextRPG__ver._2025_
                 Thread.Sleep(1000);
                 return;
             }
-            Item selected = DataManager.Inventory[idx];
             BuyItem(input);
         }
         public void BuyItem(int input)
@@ -82,13 +81,6 @@ namespace TextRPG__ver._2025_
                 store.DisplayItems();
                 Thread.Sleep(1000);
             }
-        }
-        void GoldInfo(int g, string text, ConsoleColor c)
-        {
-            Console.ForegroundColor = c;   // 번호 색
-            Console.Write(g);
-            Console.ResetColor();// 기본 색 복원 
-            Console.Write(text);
         }
     }
 }

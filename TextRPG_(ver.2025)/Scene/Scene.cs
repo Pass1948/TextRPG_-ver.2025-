@@ -79,5 +79,13 @@ namespace TextRPG__ver._2025_
             Console.WriteLine($"\n{msg}");
             Thread.Sleep(800);
         }
+
+        public void GoldInfo<T>(T g, string text, ConsoleColor c)
+        {
+            Console.ForegroundColor = c;   // 번호 색
+            Console.Write(g);
+            Console.ResetColor();// 기본 색 복원 
+            Console.Write(text);
+        }
     }
 }

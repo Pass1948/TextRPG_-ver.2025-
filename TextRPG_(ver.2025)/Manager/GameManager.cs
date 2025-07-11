@@ -16,7 +16,8 @@ namespace TextRPG__ver._2025_
         Inventory,
         Equip,
         Store,
-        BuyItem
+        BuyItem,
+        SellItem
     }
     public enum ClassID
     {
@@ -61,8 +62,9 @@ namespace TextRPG__ver._2025_
             scenes[SceneID.Equip] = new EquipScene(this);
             scenes[SceneID.Store] = new StoreScene(this);
             scenes[SceneID.BuyItem] = new BuyItemScene(this);
+            scenes[SceneID.SellItem] = new SellItemScene(this);
 
-             // 플레이어 클래스 등록
+            // 플레이어 클래스 등록
             playerClass[ClassID.Thief] = new Thief(this);
             playerClass[ClassID.Warrior] = new Warrior(this);
             playerClass[ClassID.Wizard] = new Wizard(this);
