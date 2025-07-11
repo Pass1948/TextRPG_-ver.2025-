@@ -8,5 +8,16 @@ namespace TextRPG__ver._2025_
 {
     public class StatisticsScene : Scene
     {
+        public StatisticsScene(GameManager game) : base(game)
+        {
+        }
+        public override void Render()
+        {
+            throw new NotImplementedException();
+        }
+        public override void Update()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
