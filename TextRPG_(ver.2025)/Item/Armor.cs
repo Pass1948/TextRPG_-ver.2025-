@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TextRPG__ver._2025_
 {
-    public abstract class Item
+    public class Armor : Item
     {
     }
 }
