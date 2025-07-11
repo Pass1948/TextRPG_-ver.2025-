@@ -55,8 +55,8 @@ namespace TextRPG__ver._2025_
                     Thread.Sleep(1000);
                     break;
                 case 0:
-                    gameManager.SwitchScene(SceneID.MainMenu);
-                    Console.WriteLine("\ninfo : 메인메뉴로 되돌아갑니다.");
+                    gameManager.SwitchScene(SceneID.ClassSelect);
+                    Console.WriteLine("\ninfo : 직업선택창으로 돌아갑니다");
                     Thread.Sleep(1000);
                     break;
                 default:
