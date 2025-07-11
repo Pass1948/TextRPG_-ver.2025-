@@ -58,6 +58,7 @@ namespace TextRPG__ver._2025_
             }
 
             // 선택 아이템 장착 및 해제
+            // 아이템 중복 장착 허용, 갯수 제한이 없음
             selected.IsEquipped = !selected.IsEquipped;
             Info(selected.IsEquipped ? $"[{selected.Name}]을(를) 장착했습니다." : $"[{selected.Name}]을(를) 해제했습니다.");
             }
