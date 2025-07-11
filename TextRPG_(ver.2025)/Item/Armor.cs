@@ -8,5 +8,12 @@ namespace TextRPG__ver._2025_
 {
     public class Armor : Item
     {
+        public Armor(string name, int Def, string desc, int gold)
+        {
+            Name = name;
+            Description = desc;
+            Value = Def;
+            Price = gold;
+        }
     }
 }

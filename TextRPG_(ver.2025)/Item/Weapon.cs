@@ -8,5 +8,12 @@ namespace TextRPG__ver._2025_
 {
     public class Weapon : Item
     {
+        public Weapon(string name, int atk, string desc, int gold)
+        {
+            Name = name;
+            Description = desc;
+            Value = atk;
+            Price = gold;
+        }
     }
 }
