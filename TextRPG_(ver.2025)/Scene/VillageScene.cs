@@ -20,6 +20,7 @@ namespace TextRPG__ver._2025_
             Print(1, "상태보기", ConsoleColor.DarkCyan);
             Print(2, "인벤토리", ConsoleColor.DarkCyan);
             Print(3, "상점", ConsoleColor.DarkCyan);
+            Print(4 , "던전", ConsoleColor.DarkCyan);
             Print(0, "직업다시 선택하기\n", ConsoleColor.Magenta);
 
             Print("원하시는 행동을 입력해주세요");
@@ -52,6 +53,11 @@ namespace TextRPG__ver._2025_
                 case 3:
                     gameManager.SwitchScene(SceneID.Store);
                     Console.WriteLine("\ninfo : 상점으로 갑니다.");
+                    Thread.Sleep(1000);
+                    break;
+                case 4:
+                    gameManager.SwitchScene(SceneID.Dungeon);
+                    Console.WriteLine("\ninfo : 던전에 들어갑니다.");
                     Thread.Sleep(1000);
                     break;
                 case 0:

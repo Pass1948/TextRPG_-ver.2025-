@@ -49,12 +49,12 @@ namespace TextRPG__ver._2025_
             Console.ResetColor();// 기본 색 복원 
             Console.Write($"{no}. ");
         }
-        public void Print<T>(string text, ConsoleColor c, T no)
+        public void Print<T>(string text, T no, ConsoleColor c)
         {
-            Console.ForegroundColor = c;   // 번호 색
-            Console.WriteLine(text);
             Console.ResetColor();// 기본 색 복원 
-            Console.Write($"{no}. ");
+            Console.Write(text);
+            Console.ForegroundColor = c;   // 번호 색
+            Console.Write($"{no}");
         }
         public void Print<T>(ConsoleColor c, T no)
         {
